@@ -1,0 +1,46 @@
+name: Deploy to Firebase (Hosting + Functions)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+concurrency:
+  group: firebase-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Auth to Google Cloud using a Firebase service account JSON stored in GitHub Secrets.
+      # Secret name is arbitrary; keep it consistent with your project.
+      - name: Google Auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMFF_B73B0 }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: |
+            functions/package-lock.json
+
+      - name: Install Firebase CLI
+        run: npm i -g firebase-tools
+
+      # If your Hosting is purely static (firebase.json hosting.public = '.'), there is no build step.
+      # For Functions, install dependencies from /functions.
+      - name: Install Functions deps
+        working-directory: functions
+        run: npm ci
+
+      - name: Deploy (Hosting + Functions)
+        run: firebase deploy --only hosting,functions --project amff-b73b0

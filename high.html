@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+<title>Բարձրագույն Դիվիզիոն — AMF Լիգա</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+</head>
+<body class="app" data-div="high">
+  <a class="top-btn top-left" href="admin.html" aria-label="Ադմին">Admin</a>
+  <button id="toggle-theme" class="top-btn top-right" type="button" aria-label="Թեմա">Theme</button>
+  <a class="top-logo" href="index.html" aria-label="AMF Լիգա">
+    <img src="logo.png" alt="AMF League" />
+  </a>
+
+
+  <main class="page" role="main">
+    <h1 class="page-title">Բարձրագույն Դիվիզիոն</h1>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Աղյուսակ</h2>
+        <div class="muted">Pts • GD • GF</div>
+      </div>
+      <div id="table-standings" class="stack" aria-live="polite">
+        <div class="skeleton skeleton-block"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Լիդերներ</h2>
+        <div class="muted">Top 8</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="section-title">⚽ Բոմբարդիրներ</div>
+          <div id="scorer-list" class="stack"><div class="muted">Բեռնում…</div></div>
+        </div>
+        <div class="card">
+          <div class="section-title">🅰️ Ասիստներ</div>
+          <div id="assist-list" class="stack"><div class="muted">Բեռնում…</div></div>
+        </div>
+        <div class="card">
+          <div class="section-title">🟨 Դեղին</div>
+          <div id="yellow-list" class="stack"><div class="muted">Բեռնում…</div></div>
+        </div>
+        <div class="card">
+          <div class="section-title">🟥 Կարմիր</div>
+          <div id="red-list" class="stack"><div class="muted">Բեռնում…</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Վերջին խաղեր</h2>
+      </div>
+      <div id="recent-list" class="stack" aria-live="polite">
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Առաջիկա խաղեր</h2>
+      </div>
+      <div id="upcoming-list" class="stack" aria-live="polite">
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar" role="navigation" aria-label="Main">
+    <a href="index.html" data-tab="home">Գլխավոր</a>
+    <a href="tournaments.html" data-tab="tournaments">Մրցաշարեր</a>
+    <a href="matches.html" data-tab="matches">Խաղեր</a>
+    <a href="teams.html" data-tab="teams">Թիմեր</a>
+  </nav>
+
+  <script type="module" src="assets/js/pages/division.page.js"></script>
+</body>
+</html>

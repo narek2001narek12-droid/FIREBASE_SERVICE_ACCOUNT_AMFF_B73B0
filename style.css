@@ -1,0 +1,2 @@
+/* Compatibility wrapper: keep old href="style.css" working */
+@import url("assets/css/app.css");

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Խաղացող — AMF Լիգա</title>
+
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+</head>
+
+<body class="app">
+  <a class="top-btn top-left" href="admin.html" aria-label="Ադմին">Admin</a>
+  <button id="toggle-theme" class="top-btn top-right" type="button" aria-label="Թեմա">Theme</button>
+
+  <a class="top-logo" href="index.html" aria-label="AMF Լիգա">
+    <img src="logo.png" alt="AMF League" />
+  </a>
+
+  <main class="page" role="main">
+    <div class="breadcrumbs">
+      <a id="back-to-team" href="teams.html" class="muted">← Թիմ</a>
+    </div>
+
+    <div id="player-header"></div>
+
+    <section class="section">
+      <h2 class="section-title">Վիճակագրություն</h2>
+      <div id="player-stats"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Խաղեր</h2>
+      <div id="player-matches" class="stack"></div>
+      <div class="section-actions">
+        <button id="player-more" class="btn ghost" type="button">Ավելին</button>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar" role="navigation" aria-label="Main">
+    <a href="index.html" data-tab="home">Գլխավոր</a>
+    <a href="tournaments.html" data-tab="tournaments">Մրցաշարեր</a>
+    <a href="matches.html" data-tab="matches">Խաղեր</a>
+    <a href="teams.html" data-tab="teams">Թիմեր</a>
+  </nav>
+
+  <script type="module" src="assets/js/pages/player.page.js"></script>
+</body>
+</html>

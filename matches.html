@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>AMF Լիգա — Մատչեր</title>
+
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+</head>
+
+<body class="app">
+  <a class="top-btn top-left" href="admin.html" aria-label="Ադմին">Admin</a>
+  <button id="toggle-theme" class="top-btn top-right" type="button" aria-label="Թեմա">Theme</button>
+
+  <a class="top-logo" href="index.html" aria-label="AMF Լիգա">
+    <img src="logo.png" alt="AMF League" />
+  </a>
+
+  <main class="page" role="main">
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Մատչեր</h2>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="card" style="margin-bottom:12px;">
+        <div class="toolbar" style="justify-content:space-between;">
+          <!-- DIVISION -->
+          <div class="segmented" aria-label="Division">
+            <button class="seg active" type="button" data-div="high">Բարձրագույն</button>
+            <button class="seg" type="button" data-div="first">Առաջին</button>
+            <button class="seg" type="button" data-div="cup">Գավաթ</button>
+            <button class="seg" type="button" data-div="supercup">Սուպեր</button>
+            <button class="seg" type="button" data-div="structure">24 Թիմ</button>
+          </div>
+
+          <!-- TYPE -->
+          <div class="segmented" aria-label="Type">
+            <button class="seg active" type="button" data-match-type="upcoming">Առաջիկա</button>
+            <button class="seg" type="button" data-match-type="past">Անցյալ</button>
+            <button class="seg" type="button" data-match-type="all">Բոլորը</button>
+          </div>
+        </div>
+
+        <!-- TEAM FILTER -->
+        <div class="toolbar" style="margin-top:10px;">
+          <label class="field" style="flex:1; min-width:220px;">
+            <div class="label">Թիմ</div>
+            <select id="team-filter">
+              <option value="">Բոլոր թիմերը</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- ROUND / STAGE LAZY LOAD -->
+        <div class="toolbar" style="margin-top:10px;">
+          <label class="field" style="flex:1; min-width:220px;">
+            <div class="label">Ֆիլտր</div>
+            <select id="stage-mode">
+              <option value="round">Տուր</option>
+              <option value="stage">Ստադիա</option>
+              <option value="none">Չկա</option>
+            </select>
+          </label>
+
+          <label class="field" style="flex:2; min-width:220px;">
+            <div class="label">Արժեք</div>
+            <select id="stage-value">
+              <option value="">Ընտրեք…</option>
+            </select>
+          </label>
+
+          <button id="apply-filter" class="btn" type="button" style="height:42px;">Բեռնել</button>
+        </div>
+
+        <div id="matches-hint" class="muted" style="margin-top:10px;font-size:12px;"></div>
+      </div>
+
+      <!-- LIST -->
+      <div id="match-list" class="stack"></div>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="Tabbar">
+    <a class="tab" href="index.html" data-tab="home">Գլխավոր</a>
+    <a class="tab" href="tournaments.html" data-tab="tournaments">Տուրնիրներ</a>
+    <a class="tab" href="matches.html" data-tab="matches">Մատչեր</a>
+    <a class="tab" href="teams.html" data-tab="teams">Թիմեր</a>
+  </nav>
+
+  <script type="module" src="assets/js/pages/matches.page.js"></script>
+</body>
+</html>
